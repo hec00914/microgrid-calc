@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>微電網建置效益試算｜宏于電機</title>
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="lock" class="lock" hidden>
+  <form id="lockForm" class="lock-box" autocomplete="on">
+    <div class="lock-logo">⚡</div>
+    <h1>微電網建置效益試算</h1>
+    <p class="muted">宏于電機 內部使用・請輸入密碼</p>
+    <input type="text" name="username" value="hyec-microgrid" autocomplete="username" hidden>
+    <input id="lockPw" type="password" placeholder="密碼" autocomplete="current-password" required>
+    <label class="lock-rem"><input id="lockRemember" type="checkbox"> 在這台電腦記住 30 天</label>
+    <div id="lockMsg" class="lock-msg"></div>
+    <button id="lockBtn" class="btn" type="submit">解鎖</button>
+  </form>
+</div>
+<div id="app" hidden>
+<header class="topbar">
+  <div class="brand"><span class="logo">⚡</span><div><div class="b1">微電網建置效益試算</div><div class="b2">宏于電機 研發處 ・ V3 線上版</div></div></div>
+  <nav class="nav">
+    <button data-page="calc">試算</button>
+    <button data-page="cases">案件紀錄</button>
+    <button data-page="admin">清單管理</button>
+    <button data-page="notes">說明</button>
+    <button id="btnLogout" class="logout" title="登出（清除這台電腦記住的密碼）">登出</button>
+  </nav>
+</header>
+<div id="dataBanner" class="banner" hidden></div>
+
+<main>
+  <section id="page-calc" class="page">
+    <div class="casebar card">
+      <div><strong id="caseState">新案件</strong><div class="muted small">填寫左側欄位，右側結果即時更新。<span class="req">*</span> 為必填。</div></div>
+      <div class="btns">
+        <button id="btnNew" class="btn ghost">開新案件</button>
+        <button id="btnReset" class="btn ghost">載入範例</button>
+        <button id="btnSave" class="btn">儲存案件</button>
+        <button id="btnExcel" class="btn ghost">下載 Excel</button>
+        <button id="btnPrint" class="btn ghost">列印／存 PDF</button>
+      </div>
+    </div>
+    <div class="layout">
+      <div id="form" class="form-col"></div>
+      <div id="results" class="res-col"></div>
+    </div>
+  </section>
+  <section id="page-cases" class="page" hidden></section>
+  <section id="page-admin" class="page" hidden></section>
+  <section id="page-notes" class="page" hidden></section>
+</main>
+<div id="print"></div>
+<div id="toasts"></div>
+<footer class="foot"><span id="ver"></span>　｜　試算結果依原 Excel（2026新微電網建置效益試算_V3）公式計算，僅供參考。</footer>
+</div>
+
+<script src="js/crypto.js"></script>
+<script src="js/default-data.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/store.js"></script>
+<script src="js/vendor/xlsx.full.min.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
